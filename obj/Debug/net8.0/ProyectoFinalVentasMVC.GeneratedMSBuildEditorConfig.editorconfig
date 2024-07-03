@@ -1,0 +1,147 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ProyectoFinalVentasMVC
+build_property.RootNamespace = ProyectoFinalVentasMVC
+build_property.ProjectDir = C:\Users\David\source\repos\ProyectoFinalVentasMVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\David\source\repos\ProyectoFinalVentasMVC
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Acceso/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Administrador/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudCliente/ActualizarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZENsaWVudGVcQWN0dWFsaXphckNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudCliente/AgregarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZENsaWVudGVcQWdyZWdhckNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudCliente/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZENsaWVudGVcQ29uZmlybURlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudCliente/EliminarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZENsaWVudGVcRWxpbWluYXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudCliente/ListarClientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZENsaWVudGVcTGlzdGFyQ2xpZW50ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudProducto/ActualizarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFByb2R1Y3RvXEFjdHVhbGl6YXJQcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudProducto/AgregarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFByb2R1Y3RvXEFncmVnYXJQcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudProducto/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFByb2R1Y3RvXENvbmZpcm1EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudProducto/EliminarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFByb2R1Y3RvXEVsaW1pbmFyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudProducto/ListarProductos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFByb2R1Y3RvXExpc3RhclByb2R1Y3Rvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudTipoProducto/ActualizarTipoProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFRpcG9Qcm9kdWN0b1xBY3R1YWxpemFyVGlwb1Byb2R1Y3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudTipoProducto/AgregarTipoProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFRpcG9Qcm9kdWN0b1xBZ3JlZ2FyVGlwb1Byb2R1Y3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudTipoProducto/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFRpcG9Qcm9kdWN0b1xDb25maXJtRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudTipoProducto/EliminarTipoProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFRpcG9Qcm9kdWN0b1xFbGltaW5hclRpcG9Qcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudTipoProducto/ListarTipoProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFRpcG9Qcm9kdWN0b1xMaXN0YXJUaXBvUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudUsuario/ActualizarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFVzdWFyaW9cQWN0dWFsaXphclVzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudUsuario/AgregarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFVzdWFyaW9cQWdyZWdhclVzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudUsuario/EliminarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFVzdWFyaW9cRWxpbWluYXJVc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/CrudUsuario/ListarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3J1ZFVzdWFyaW9cTGlzdGFyVXN1YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Facturacion/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYWNpb25cQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Vendedor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVuZGVkb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/source/repos/ProyectoFinalVentasMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-yc8c3iudoj

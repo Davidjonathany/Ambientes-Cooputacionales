@@ -1,0 +1,28 @@
+﻿@model ProyectoFinalVentasMVC.ViewsModels.ViewsModelTipoProducto
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Actualizar Tipo de Producto</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Actualizar Tipo de Producto</h2>
+        <br /><br />
+        <form asp-action="ActualizarTipoProducto" asp-route-idtipo="@Model.TipoId" method="post">
+            <input type="hidden" asp-for="TipoId" />
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <input asp-for="Tipo" class="form-control" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <br /><br />
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>║
+            <a asp-action="ListarTipoProducto" class="btn btn-danger">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

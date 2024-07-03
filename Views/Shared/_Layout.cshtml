@@ -1,0 +1,75 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProyectoFinalVentasMVC</title>
+    <script src="~/js/logout-on-close.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="bg-light-blue">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">ProyectoFinalVentasMVC</div>
+            <div class="list-group list-group-flush">
+
+                @if (User.IsInRole("Administrador"))
+                {
+
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Administrador" asp-action="Clientes">Gestionar Clientes</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Administrador" asp-action="Usuarios">Gestionar Usuarios</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Administrador" asp-action="Producto">Gestionar Productos</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Administrador" asp-action="TipoProducto">Gestionar Tipos de Productos</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Administrador" asp-action="Factura">Venta</a>
+
+                }
+                else if (User.IsInRole("Vendedor"))
+                {
+
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Vendedor" asp-action="Clientes">Gestionar Clientes</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Vendedor" asp-action="Producto">Productos</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Vendedor" asp-action="Factura">Venta</a>
+
+                }
+                
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">
+                        <img style="max-width:25px;" src="~/mNhamb.ico" alt="Icono">
+                    </button>
+                    <a class="btn btn-danger ms-auto" asp-area="" asp-controller="Home" asp-action="Salir">
+                        <img style="max-width:25px;" src="~/salir.ico" alt="Icono">
+                    </a>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            <p>&copy; 2024 David Yépez & Anthony Lanchi</p>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/sidebar-toggle.js"></script>
+    <script src="~/js/decimalSeparator.js"></script>
+    <script src="~/js/logout-on-close.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

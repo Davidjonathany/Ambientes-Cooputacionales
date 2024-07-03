@@ -1,0 +1,59 @@
+﻿@model List<ProyectoFinalVentasMVC.Models.Producto>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado de Productos</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container text-center">
+        <h2>Listado de Productos</h2>
+        <br />
+        <div class="text-center">
+            @if (User.IsInRole("Administrador"))
+            {
+                <!-- Botón de agregar visible solo para el rol de Administrador -->
+                <a href="@Url.Action("AgregarProducto", "CrudProducto")" class="btn btn-success">Agregar Producto</a>
+            }
+        </div>
+        <br /><br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Código de Barras</th>
+                    <th>IVA</th>
+                    <th>Precio</th>
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <th>Acciones</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var producto in Model)
+                {
+                    <tr>
+                        <td>@producto.Nombre</td>
+                        <td>@(producto.TipoProducto != null ? producto.TipoProducto.Tipo : "")</td>
+                        <td>@producto.CodigoBarras</td>
+                        <td>@(producto.Iva ? "Sí" : "No")</td>
+                        <td>@producto.Precio</td>
+                        <td>                   
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a href="@Url.Action("ActualizarProducto", "CrudProducto", new { id = producto.Id })" class="btn btn-warning">Actualizar</a>
+                                <a href="@Url.Action("EliminarProducto", "CrudProducto", new { id = producto.Id })" class="btn btn-danger">Eliminar</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

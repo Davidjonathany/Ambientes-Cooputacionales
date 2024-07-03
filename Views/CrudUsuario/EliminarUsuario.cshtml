@@ -1,0 +1,54 @@
+﻿@model ProyectoFinalVentasMVC.Models.Usuario
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Usuario</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Eliminar Usuario</h2>
+        <hr />
+        <div class="alert alert-warning" role="alert">
+            <strong>¡Advertencia!</strong> ¿Está seguro que desea eliminar este usuario?
+            <br />Una vez presione el botón de <strong>¡Eliminar!</strong>, se borrará definitivamente
+            <br />Y no se podrá recuperar la información de este usuario.
+            <br />La información se borra Definitivamente sin posibilidades
+            <br />De ser recuperada si esta de acuerdo presioné el Botón de Eliminar
+        </div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                Nombre
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Nombre
+            </dd>
+            <dt class="col-sm-2">
+                Correo
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Correo
+            </dd>
+            <dt class="col-sm-2">
+                Clave
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Clave
+            </dd>
+            <dt class="col-sm-2">
+                Rol
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Rol
+            </dd>
+        </dl>
+        <form asp-action="ConfirmarEliminarUsuario" asp-route-id="@Model.Id" method="post">
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a asp-action="ListarUsuario" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

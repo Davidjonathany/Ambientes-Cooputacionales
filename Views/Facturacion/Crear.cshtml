@@ -1,0 +1,195 @@
+﻿@model ProyectoFinalVentasMVC.ViewModels.FacturacionViewModel
+<div>
+<h2>Crear Factura</h2>
+
+<form asp-controller="Facturacion" asp-action="BuscarClientePorCedula" method="post">
+    <div class="form-group">
+        <label for="searchCedula">Buscar Cliente por Cédula:</label>
+        <input type="text" class="form-control" id="searchCedula" name="searchCedula" placeholder="Ingrese la cédula del cliente" />
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar Cliente</button>
+</form>
+
+@if (Model.Cliente != null)
+{
+    <div>
+        <h3>Datos del Cliente</h3>
+        <p><strong>Cédula:</strong> @Model.Cliente.Cedula</p>
+        <p><strong>Nombres:</strong> @Model.Cliente.Nombres</p>
+        <p><strong>Apellidos:</strong> @Model.Cliente.Apellidos</p>
+        <p><strong>Dirección:</strong> @Model.Cliente.Direccion</p>
+        <p><strong>Teléfono:</strong> @Model.Cliente.Telefono</p>
+        <p><strong>Correo:</strong> @Model.Cliente.Correo</p>
+    </div>
+}
+</div>
+<br />
+<div>
+    <h3>Agregar Producto a la Factura</h3>
+
+    @using (Html.BeginForm("AgregarProducto", "Facturacion", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Seleccione un producto:")
+            @Html.DropDownListFor(model => model.FacturaDetalle.IdProducto, new SelectList(Model.NombresProductos, "Value", "Text"), "-- Seleccione --", new { @class = "form-control", id = "productosDropdown" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Precio del producto:")
+            @Html.TextBoxFor(model => model.FacturaDetalle.Producto.Precio, new { @class = "form-control", id = "precioProducto", @readonly = "readonly" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FacturaDetalle.Cantidad)
+            @Html.EditorFor(model => model.FacturaDetalle.Cantidad, new { htmlAttributes = new { @class = "form-control", id = "cantidadInput" } })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Tiene IVA:")
+            @Html.TextBoxFor(model => model.FacturaDetalle.Producto.Iva, new { @class = "form-control", id = "tieneIVA", @readonly = "readonly" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FacturaDetalle.Descuento)
+            @Html.EditorFor(model => model.FacturaDetalle.Descuento, new { htmlAttributes = new { @class = "form-control", id = "descuentoInput", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FacturaDetalle.Total)
+            @Html.EditorFor(model => model.FacturaDetalle.Total, new { htmlAttributes = new { @class = "form-control", id = "totalInput" } })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+
+    }
+</div>
+<br />
+
+<div>
+    <h3>Detalles de Factura</h3>
+    <table class="table" id="detallesFactura">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Tiene Iva</th>
+                <th>Descuento</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in Model.DetallesFactura)
+            {
+                <tr>
+                    <td>@detalle.Producto.Nombre</td>
+                    <td>@detalle.Producto.Precio.ToString("C")</td>
+                    <td>@detalle.Cantidad</td>
+                    <td>@detalle.Producto.Iva ? "Sí" : "No"</td>
+                    <td>@detalle.Descuento.ToString("C")</td>
+                    <td>@detalle.Total.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Subtotal: @Model.Subtotal.ToString("C")</h4>
+    <h4>Descuento: @Model.Descuento.ToString("C")</h4>
+    <h4>Total: @Model.Total.ToString("C")</h4>
+</div>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <<script src=""></script>
+    <script>
+         function replaceDecimalSeparator(input) {
+        // Reemplaza puntos (.) con comas (,)
+        input.value = input.value.replace(/\./g, ',');}
+
+        $(function () {
+            $('#productosDropdown').change(function () {
+                var idProducto = $(this).val();
+                if (idProducto !== '') {
+                    $.ajax({
+                        url: '@Url.Action("ObtenerDetallesProducto", "Facturacion")',
+                        type: 'GET',
+                        data: { idProducto: idProducto },
+                        success: function (response) {
+                            $('#precioProducto').val(response.precio.toFixed(2));
+                            $('#tieneIVA').val(response.tieneIVA ? 'Sí' : 'No');
+                            calcularDescuento();
+                        },
+                        error: function (error) {
+                            console.error('Error al obtener detalles del producto:', error);
+                        }
+                    });
+                } else {
+                    // Limpiar campos si no se selecciona un producto
+                    $('#precioProducto').val('');
+                    $('#tieneIVA').val('');
+                    $('#descuentoInput').val('0');
+                }
+            });
+
+            $('#cantidadInput').change(function () {
+                calcularDescuento();
+            });
+
+            function calcularDescuento() {
+                var cantidad = parseFloat($('#cantidadInput').val());
+                var precio = parseFloat($('#precioProducto').val());
+                var tieneIVA = $('#tieneIVA').val() === 'Sí';
+
+                if (!isNaN(cantidad) && !isNaN(precio)) {
+                    var descuento = 0;
+                    if (cantidad >= 10) {
+                        if (tieneIVA) {
+                            descuento = 0.12 * precio * cantidad;
+                        } else {
+                            descuento = 0.05 * precio * cantidad;
+                        }
+                    }
+                    $('#descuentoInput').val(descuento.toFixed(2));
+                    calcularTotal(precio, cantidad, descuento);
+                } else {
+                    $('#descuentoInput').val('0');
+                }
+            }
+
+            function calcularTotal(precio, cantidad, descuento) {
+                var total = (precio * cantidad) - descuento;
+                $('#totalInput').val(total.toFixed(2));
+            }
+
+
+            $('#agregarProductoBtn').click(function () {
+                var nombreProducto = $('#productosDropdown option:selected').text();
+                var precio = $('#precioProducto').val();
+                var cantidad = $('#cantidadInput').val();
+                var tieneIVA = $('#tieneIVA').val();
+                var descuento = $('#descuentoInput').val();
+                var total = $('#totalInput').val();
+
+                if (nombreProducto && precio && cantidad && tieneIVA !== '' && descuento !== '' && total !== '') {
+                    var nuevaFila = '<tr>' +
+                        '<td>' + nombreProducto + '</td>' +
+                        '<td>' + parseFloat(precio).toFixed(2) + '</td>' +
+                        '<td>' + cantidad + '</td>' +
+                        '<td>' + tieneIVA + '</td>' +
+                        '<td>' + parseFloat(descuento).toFixed(2) + '</td>' +
+                        '<td>' + parseFloat(total).toFixed(2) + '</td>' +
+                        '</tr>';
+
+                    $('#detallesFactura tbody').append(nuevaFila);
+                } else {
+                    alert('Por favor, complete todos los campos del producto antes de agregarlo.');
+                }
+            });
+        });
+    </script>
+}
+
+

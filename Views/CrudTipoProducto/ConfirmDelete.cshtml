@@ -1,0 +1,38 @@
+﻿@model ProyectoFinalVentasMVC.Models.TipoProducto
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Confirmar Eliminación de Tipo de Producto</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Confirmar Eliminación de Tipo de Producto</h2>
+        <hr /><br /><br />
+        <div class="alert alert-danger" role="alert" align="center">
+            <strong>¡Confirmación Final!</strong> Está a punto de eliminar este Tipo de Producto y 
+            <br />todos sus productos asociados.
+            <br />Esta acción no se puede deshacer.
+            <br />Si esta totalmente seguro de eliminar incluido todos los datos de 
+            <br />Productos que esten relacionados con este tipo de Producto.
+            <br />Confirme la Eliminación
+        </div><br /><br />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Tipo de producto
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Tipo
+            </dd>
+        </dl>
+        <br /><br />
+        <form asp-action="ConfirmDeleteConfirmed" asp-route-idtipo="@Model.TipoId" method="post">
+            <button type="submit" class="btn btn-danger">Sí, eliminar definitivamente</button>║
+            <a asp-action="ListarTipoProducto" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

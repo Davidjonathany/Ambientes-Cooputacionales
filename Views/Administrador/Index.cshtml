@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administrador";
+}
+@using System.Security.Claims
+<center>
+    @{
+        var userName = User.FindFirst(ClaimTypes.Name)?.Value;
+    }
+
+    <div>
+        @if (!string.IsNullOrEmpty(userName))
+        {
+            <h2>Bienvenido, @userName!</h2>
+            <br />
+            <center>
+                <img src="https://media.istockphoto.com/id/1461683255/es/vector/3d-dos-party-popper.jpg?s=612x612&w=0&k=20&c=2WVNSoz0qo_iwF4jyTtsimOxrJoEWpGak-EDPdwduBg=" class="img-fluid mb-3" alt="Login Image" style="max-width:280px; height: 250px;" />
+            </center>
+            <br />
+        }
+        else
+        {
+            <h2>Bienvenido!</h2>
+            <br />
+            <center>
+                <img src="https://media.istockphoto.com/id/1461683255/es/vector/3d-dos-party-popper.jpg?s=612x612&w=0&k=20&c=2WVNSoz0qo_iwF4jyTtsimOxrJoEWpGak-EDPdwduBg=" class="img-fluid mb-3" alt="Login Image" style="max-width:280px; height: 250px;" />
+            </center>
+            <br />
+        }
+    </div>
+</center>

@@ -1,0 +1,43 @@
+﻿@model List<ProyectoFinalVentasMVC.Models.TipoProducto>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado de Tipo de Productos</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container text-center">
+        <h2 class="text-center">Listado de Tipo de Productos</h2>
+        <br />
+        <br />
+        <p class="text-center">¿Desea registrar un nuevo Tipo de Producto?</p>
+        <div class="text-center">
+            <a href="@Url.Action("AgregarTipoProducto", "CrudTipoProducto")" class="btn btn-info">Haga clic aquí</a>
+        </div>
+        <br /><br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tipoProducto in Model)
+                {
+                    <tr>
+                        <td>@tipoProducto.Tipo</td>
+                        <td>
+                            <a href="@Url.Action("ActualizarTipoProducto", "CrudTipoProducto", new { idtipo = tipoProducto.TipoId })" class="btn btn-warning">Actualizar</a>
+                            <a href="@Url.Action("EliminarTipoProducto", "CrudTipoProducto", new { idtipo = tipoProducto.TipoId })" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

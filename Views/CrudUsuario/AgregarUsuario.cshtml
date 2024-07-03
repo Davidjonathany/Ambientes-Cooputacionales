@@ -1,0 +1,48 @@
+﻿@model ProyectoFinalVentasMVC.Models.Usuario
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar Usuario</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Agregar Nuevo Usuario</h2>
+        <br /><br />
+        <form asp-action="AgregarUsuario" method="post">
+            <div class="form-group">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Correo"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Clave"></label>
+                <input asp-for="Clave" class="form-control" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Rol"></label>
+                <select asp-for="Rol" class="form-control">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Vendedor">Vendedor</option>
+                </select>
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
+            <br /><br />
+            <button type="submit" class="btn btn-primary">Guardar</button>║
+            <a asp-action="ListarUsuario" class="btn btn-danger">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

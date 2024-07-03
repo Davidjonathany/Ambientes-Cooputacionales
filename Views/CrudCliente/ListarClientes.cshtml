@@ -1,0 +1,78 @@
+﻿@model List<ProyectoFinalVentasMVC.Models.Cliente>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado de Clientes</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container text-center">
+        <h2 class="text-center">Listado de Clientes</h2>
+        <br />
+        <br />
+        <p class="text-center">¿Desea registrar un nuevo Tipo de Producto?</p>
+        <div class="text-center">
+            @if (User.IsInRole("Vendedor"))
+            {
+                <!-- Botón de agregar visible solo para el rol de Vendedor -->
+                <a href="@Url.Action("AgregarCliente", "CrudCliente")" class="btn btn-success">Agregar</a>
+            }
+        </div>
+        <br /><br />
+        <form method="get" action="@Url.Action("ListarClientes", "CrudCliente")">
+            <div class="form-group">
+                <input type="text" class="form-control" name="searchCedula" placeholder="Buscar por Cédula">
+                <br />
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+        <br />
+        @if (TempData["Mensaje"] != null)
+        {
+            <div class="alert alert-info" role="alert">
+                @TempData["Mensaje"]
+            </div>
+        }
+        <br /><br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Correo Electrónico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cliente in Model)
+                {
+                    <tr>
+                        <td>@cliente.Cedula</td>
+                        <td>@cliente.Nombres</td>
+                        <td>@cliente.Apellidos</td>
+                        <td>@cliente.Direccion</td>
+                        <td>@cliente.Telefono</td>
+                        <td>@cliente.Correo</td>
+                    <td>
+                     <!-- Botón de actualizar disponible para ambos roles -->
+                    <a href="@Url.Action("ActualizarCliente", "CrudCliente", new { id = cliente.Id })" class="btn btn-warning">Actualizar</a>
+
+                    @if (User.IsInRole("Administrador"))
+                    {
+                    <!-- Botón de eliminar visible solo para el rol de Administrador -->
+                    <a href="@Url.Action("EliminarCliente", "CrudCliente", new { id = cliente.Id })" class="btn btn-danger">Eliminar</a>
+                    }
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>    
+    </div>
+</body>
+</html>

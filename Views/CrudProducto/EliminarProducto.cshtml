@@ -1,0 +1,55 @@
+﻿@model ProyectoFinalVentasMVC.Models.Producto
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Producto</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Eliminar Producto</h2>
+        <hr />
+        <div class="alert alert-warning" role="alert">
+            <strong>¡Advertencia!</strong>
+            <br />Una vez presione el botón de <strong>¡Eliminar!</strong>, el producto se borrará definitivamente
+            <br />Y no se podrá recuperar la información de este producto.
+        </div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                Nombre
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Nombre
+            </dd>
+            <dt class="col-sm-2">
+                Tipo
+            </dt>
+            <dd class="col-sm-10">
+                @Model.TipoProducto.Tipo
+            </dd>
+            <dt class="col-sm-2">
+                Código de Barras
+            </dt>
+            <dd class="col-sm-10">
+                @Model.CodigoBarras
+            </dd>
+            <dt class="col-sm-2">
+                IVA
+            </dt>
+            <dd class="col-sm-10">
+                @(Model.Iva ? "Sí" : "No")
+            </dd>
+            <dd class="col-sm-10">
+                @Model.Precio
+            </dd>
+        </dl>
+        <form asp-action="ConfirmDelete" asp-route-id="@Model.Id" method="post">
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a asp-action="ListarProductos" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

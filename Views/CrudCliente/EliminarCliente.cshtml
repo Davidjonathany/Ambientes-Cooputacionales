@@ -1,0 +1,64 @@
+﻿@model ProyectoFinalVentasMVC.Models.Cliente
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Cliente</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Eliminar Cliente</h2>
+        <hr />
+        <div class="alert alert-warning" role="alert">
+            <strong>¡Advertencia!</strong> ¿Está seguro que desea eliminar este cliente?
+            <br />Una vez precione el botón de <strong>¡Eliminar!</strong> se borra Definitavemente
+            <br />Y no se podra recuperar la información de este cliente.
+        </div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                Cédula
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Cedula
+            </dd>
+            <dt class="col-sm-2">
+                Nombres
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Nombres
+            </dd>
+            <dt class="col-sm-2">
+                Apellidos
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Apellidos
+            </dd>
+            <dt class="col-sm-2">
+                Dirección
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Direccion
+            </dd>
+            <dt class="col-sm-2">
+                Teléfono
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Telefono
+            </dd>
+            <dt class="col-sm-2">
+                Correo Electrónico
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Correo
+            </dd>
+        </dl>
+        <form asp-action="ConfirmDelete" asp-route-id="@Model.Id" method="post">
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>║
+            <a asp-action="ListarClientes" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
